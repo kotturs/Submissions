@@ -46,7 +46,8 @@
 				break;
             case "4" :
             	$finVal .= $onesNotation.$fivesNotation;
-            	$barCode .= '<div style="width:'.$pixelsArr[$onesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div><div style="width:'.$pixelsArr[$fivesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>';
+            	$barCode .= '<div style="width:'.$pixelsArr[$onesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>';
+				$barCode .= '<div style="width:'.$pixelsArr[$fivesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>';
 				break;
             case "5" :
             	$finVal .= $fivesNotation;
@@ -57,11 +58,12 @@
             case "8" :
             	$value -= 5;
             	$finVal .= $fivesNotation.str_repeat($onesNotation,$value);
-            	$barCode .= '<div style="width:'.$pixelsArr[$fivesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>'.str_repeat('<div style="width:'.$pixelsArr[$onesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>',$value);
+            	$barCode .= '<div style="width:'.$pixelsArr[$fivesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>';$barCode .= str_repeat('<div style="width:'.$pixelsArr[$onesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>',$value);
 				break;
             case "9" :
             	$finVal .= $onesNotation.$tensNotation;
-            	$barCode .= '<div style="width:'.$pixelsArr[$onesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div><div style="width:'.$pixelsArr[$tensNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>';
+            	$barCode .= '<div style="width:'.$pixelsArr[$onesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>';
+				$barCode .= '<div style="width:'.$pixelsArr[$tensNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>';
 				break;
         }
     }
