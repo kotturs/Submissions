@@ -1,5 +1,5 @@
 <?php 
-    $pxsArr = array(
+    $pixelsArr = array(
         'I' => '1px',
         'V' => '3px',
         'X' => '5px',
@@ -23,45 +23,45 @@
     $onesNotation = '';
     $fivesNotation = ''; 
     $tensNotation = '';
-    foreach($numArr as $pos=>$val){
-    	if($pos == 'th'){
-    		$finVal .=  str_repeat('M',$val);
-    		$barCode .= str_repeat('<div style="width:'.$pxsArr['M'].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>',$val);
+    foreach($numArr as $position=>$value){
+    	if($position == 'th'){
+    		$finVal .=  str_repeat('M',$value);
+    		$barCode .= str_repeat('<div style="width:'.$pixelsArr['M'].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>',$value);
     		continue;
-    	}else if($pos == 'hu'){
+    	}else if($position == 'hu'){
     		$onesNotation = 'C'; $fivesNotation = 'D'; $tensNotation = 'M';    		
-    	}else if($pos == 'te'){
+    	}else if($position == 'te'){
     		$onesNotation = 'X'; $fivesNotation = 'L'; $tensNotation = 'C';
-    	}else if($pos == 'on'){
+    	}else if($position == 'on'){
     		$onesNotation = 'I'; $fivesNotation = 'V'; $tensNotation = 'X';
     	}
-    	switch ($val){
+    	switch ($value){
     		case "0" :
-    			$finVal .= str_repeat($tensNotation,$val);
+    			$finVal .= str_repeat($tensNotation,$value);
 			case "1" : 
             case "2" :
             case "3" :
-            	$finVal .= str_repeat($onesNotation,$val);
-            	$barCode .= str_repeat('<div style="width:'.$pxsArr[$onesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>',$val);
+            	$finVal .= str_repeat($onesNotation,$value);
+            	$barCode .= str_repeat('<div style="width:'.$pixelsArr[$onesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>',$value);
 				break;
             case "4" :
             	$finVal .= $onesNotation.$fivesNotation;
-            	$barCode .= '<div style="width:'.$pxsArr[$onesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div><div style="width:'.$pxsArr[$fivesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>';
+            	$barCode .= '<div style="width:'.$pixelsArr[$onesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div><div style="width:'.$pixelsArr[$fivesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>';
 				break;
             case "5" :
             	$finVal .= $fivesNotation;
-            	$barCode .= '<div style="width:'.$pxsArr[$fivesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>';
+            	$barCode .= '<div style="width:'.$pixelsArr[$fivesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>';
 				break;
             case "6" :
             case "7" :
             case "8" :
-            	$val -= 5;
-            	$finVal .= $fivesNotation.str_repeat($onesNotation,$val);
-            	$barCode .= '<div style="width:'.$pxsArr[$fivesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>'.str_repeat('<div style="width:'.$pxsArr[$onesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>',$val);
+            	$value -= 5;
+            	$finVal .= $fivesNotation.str_repeat($onesNotation,$value);
+            	$barCode .= '<div style="width:'.$pixelsArr[$fivesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>'.str_repeat('<div style="width:'.$pixelsArr[$onesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>',$value);
 				break;
             case "9" :
             	$finVal .= $onesNotation.$tensNotation;
-            	$barCode .= '<div style="width:'.$pxsArr[$onesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div><div style="width:'.$pxsArr[$tensNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>';
+            	$barCode .= '<div style="width:'.$pixelsArr[$onesNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div><div style="width:'.$pixelsArr[$tensNotation].';background:#000;display:block;height:15px;float:left;margin-right:3px;"></div>';
 				break;
         }
     }
